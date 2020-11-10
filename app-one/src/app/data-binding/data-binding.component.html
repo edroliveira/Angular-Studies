@@ -1,0 +1,84 @@
+<section class="property-binding">
+    <article>
+        <div class="top-container"><h1 class="heading h1"> Data-Binding </h1></div>
+    </article>
+    <!-- <article>
+        <h2> Interpolation </h2>
+        <ul>
+            <li> Getting the 'url' variable from Component: {{ url }} </li>
+            <li> Interpolation allows you to make calculations as well, like the following: 3 * 6 = <b> {{ 3 * 6 }} </b></li>
+            <li> You can also use functions inside the reference, like: 4 + 4 isn't equal to <b> {{ 4 + 4 + getValue() }} </b> </li>
+            <li> A cool feature of interpolation is that you can use boolean expressions, such as: <b> {{ angularCourse && getLikeCourse() }} </b> </li>
+        </ul>
+    </article>
+    <article>
+        <h2> Property Binding </h2>
+        Interpolation
+        <img src="{{ urlImage }}">
+        Property Binding
+        <img [src]="urlImage" >
+        <img bind-src="urlImage">
+    </article> -->
+    <!-- <article>
+        <h2> Class and Style Binding </h2>
+        <div>
+            Select a class: 
+            <select #classe (change)="0">
+                <option value="alert-success"> Success </option>
+                <option value="alert-info"> Information </option>
+                <option value="alert-warning"> Warning </option>
+                <option value="alert-danger"> Danger </option>
+            </select>
+            <br/><br/>
+
+            <div 
+            class="alert {{ classe.value }}" 
+            role="alert"
+            > The colors will change according to the selected <b>Class</b> </div>
+
+            <br/>
+
+            <div 
+            class="alert" 
+            role="alert" 
+            [class.alert-success]="classe.value == 'alert-success'"
+            > Success! </div>
+            <div 
+            class="alert" 
+            role="alert"
+            [class.alert-info]="classe.value == 'alert-info'"
+            > Information </div>
+            <div 
+            class="alert" 
+            role="alert"
+            [class.alert-warning]="classe.value == 'alert-warning'"
+            > Warning </div>
+            <div 
+            class="alert" 
+            role="alert"
+            [class.alert-danger]="classe.value == 'alert-danger'"
+            > Danger! (Error) </div>
+            <div 
+            class="alert alert-danger" 
+            role="alert"
+            [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'"
+            > This message will only appear if an error occurs </div>
+
+        </div>
+    </article> -->
+
+    <article>
+        <h2 class="heading h2"> Event Binding </h2>
+        <div>
+            <button (click)="clickedButton()" class="btn btn-primary"> Click Me! </button>
+
+            <br/><br/>
+
+            <input type="password" 
+            (keyup)="onKeyUp($event)"
+            (keyup.enter)="saveValue($event.target.value)" />
+            <p> {{ inputValue }} </p>
+            <p> {{ savedValue }} </p>
+        </div>
+    </article>
+</section>
