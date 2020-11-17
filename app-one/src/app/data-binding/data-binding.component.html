@@ -67,7 +67,7 @@
         </div>
     </article> -->
 
-    <article>
+    <!-- <article>
         <h2 class="heading h2"> Event Binding </h2>
         <div>
             <button (click)="clickedButton()" class="btn btn-primary"> Click Me! </button>
@@ -75,10 +75,32 @@
             <br/><br/>
 
             <input type="password" 
+            #inputField
             (keyup)="onKeyUp($event)"
-            (keyup.enter)="saveValue($event.target.value)" />
+            (keyup.enter)="saveValue(inputField.value)"
+            (blur)="saveValue(inputField.value)" />
             <p> {{ inputValue }} </p>
             <p> {{ savedValue }} </p>
+            <p> {{ savedValue }} </p>
+
+            <span
+            (mouseover)="onMouseOverOut()"
+            (mouseout)="onMouseOverOut()"
+            [class.highlight]="isMouseOver"> Mouse over me! </span>
         </div>
+    </article>
+</section> -->
+
+<!-- <app-my-form></app-my-form> -->
+
+<section>
+    <article>
+        <h3> Input / Output Properties </h3>
+
+        <app-input-property [name]="courseName" ></app-input-property>
+
+        <app-output-property 
+        [value]="initialValue"
+        (valueChanged)="onValueChanged($event)"></app-output-property>
     </article>
 </section>

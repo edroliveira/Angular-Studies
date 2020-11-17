@@ -1,0 +1,30 @@
+<section class="two-way-binding">
+    <article>
+        <h3> Two-Way Data Binding </h3>
+        
+        <div>
+            <!-- Common method, bigger and antique -->
+            <input type="text"
+            #input
+            [value]="name"
+            (input)="name = input.value" />
+
+            <!-- Using ngModel to make things a bit easier -->
+            <input type="text"
+            [ngModel]="name"
+            (ngModelChange)="name = $event" />
+
+            <!-- And finally, the god of two-way data binding. It's gorgeous, isn't it? -->
+            <input type="text" [(ngModel)]="name" />
+
+            <p> You typed the name: {{ name }} </p>
+
+            <div>
+                <input type="text" [(ngModel)]="person.name" />
+                <input type="text" [(ngModel)]="person.age" />
+
+                <p> Hi {{ person.name }}! Is your age {{ person.age }}? </p>
+            </div>
+        </div>
+    </article>
+</section>
