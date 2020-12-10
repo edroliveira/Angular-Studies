@@ -67,14 +67,19 @@
         </div>
     </article>
 
+<<<<<<< HEAD
     <div>
     <article>
+=======
+    <!-- <article>
+>>>>>>> 08a94bfecc2831182bac6d7416fbb88704b99b8b
         <h2 class="heading h2"> Event Binding </h2>
         <div>
             <button (click)="clickedButton()" class="btn btn-primary"> Click Me! </button>
 
             <br/><br/>
 
+<<<<<<< HEAD
             <!-- The key is to set an offset equal to half of the remaining size of the row. 
             So for example, a column of size 2 would be centered by adding an offset of 5, that's (12-2)/2. -->
 
@@ -98,4 +103,35 @@
     </div>
 
 
+=======
+            <input type="password" 
+            #inputField
+            (keyup)="onKeyUp($event)"
+            (keyup.enter)="saveValue(inputField.value)"
+            (blur)="saveValue(inputField.value)" />
+            <p> {{ inputValue }} </p>
+            <p> {{ savedValue }} </p>
+            <p> {{ savedValue }} </p>
+
+            <span
+            (mouseover)="onMouseOverOut()"
+            (mouseout)="onMouseOverOut()"
+            [class.highlight]="isMouseOver"> Mouse over me! </span>
+        </div>
+    </article>
+</section> -->
+
+<!-- <app-my-form></app-my-form> -->
+
+<section>
+    <article>
+        <h3> Input / Output Properties </h3>
+
+        <app-input-property [name]="courseName" ></app-input-property>
+
+        <app-output-property 
+        [value]="initialValue"
+        (valueChanged)="onValueChanged($event)"></app-output-property>
+    </article>
+>>>>>>> 08a94bfecc2831182bac6d7416fbb88704b99b8b
 </section>
