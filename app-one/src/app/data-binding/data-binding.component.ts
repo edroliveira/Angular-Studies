@@ -13,6 +13,7 @@ export class DataBindingComponent implements OnInit {
   angularCourse: boolean = true;
   inputValue: string = '';
   savedValue: string = '';
+  isMouseOver: boolean = false;
 
 
   getValue() {
@@ -32,9 +33,12 @@ export class DataBindingComponent implements OnInit {
 
   }
 
-
   saveValue(value) {
     this.savedValue = value;
+  }
+
+  mouseOverOut() {
+    this.isMouseOver = !this.isMouseOver;
   }
 
   constructor() {

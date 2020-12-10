@@ -2,7 +2,7 @@
     <article>
         <div class="top-container"><h1 class="heading h1"> Data-Binding </h1></div>
     </article>
-    <!-- <article>
+    <article>
         <h2> Interpolation </h2>
         <ul>
             <li> Getting the 'url' variable from Component: {{ url }} </li>
@@ -11,7 +11,7 @@
             <li> A cool feature of interpolation is that you can use boolean expressions, such as: <b> {{ angularCourse && getLikeCourse() }} </b> </li>
         </ul>
     </article>
-    <article>
+    <!-- <article>
         <h2> Property Binding </h2>
         Interpolation
         <img src="{{ urlImage }}">
@@ -19,7 +19,7 @@
         <img [src]="urlImage" >
         <img bind-src="urlImage">
     </article> -->
-    <!-- <article>
+    <article>
         <h2> Class and Style Binding </h2>
         <div>
             Select a class: 
@@ -65,8 +65,9 @@
             > This message will only appear if an error occurs </div>
 
         </div>
-    </article> -->
+    </article>
 
+    <div>
     <article>
         <h2 class="heading h2"> Event Binding </h2>
         <div>
@@ -74,11 +75,27 @@
 
             <br/><br/>
 
-            <input type="password" 
-            (keyup)="onKeyUp($event)"
-            (keyup.enter)="saveValue($event.target.value)" />
-            <p> {{ inputValue }} </p>
-            <p> {{ savedValue }} </p>
+            <!-- The key is to set an offset equal to half of the remaining size of the row. 
+            So for example, a column of size 2 would be centered by adding an offset of 5, that's (12-2)/2. -->
+
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 grid-row">
+                    <input type="password" 
+                    #inputField
+                    (keyup)="onKeyUp($event)"
+                    (keyup.enter)="saveValue(inputField.value)"
+                    (blur)="saveValue(inputField.value)" />
+                    <p> Value: {{ inputValue }} </p>
+                    <p> Saved Value: {{ savedValue }} </p>
+
+                    <span
+                    (mouseover)="mouseOverOut()"
+                    (mouseout)="mouseOverOut()" > Passe o mouse por cima! </span>
+                </div>
+            </div>
         </div>
     </article>
+    </div>
+
+
 </section>
