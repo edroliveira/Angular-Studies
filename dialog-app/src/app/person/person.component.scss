@@ -1,0 +1,40 @@
+mat-card-header {
+    color: rgb(87, 87, 87);
+}
+
+mat-card-content {
+
+    margin-top: 16px;
+
+    .btn-dialog {
+        float: right;
+        margin-bottom: 16px;
+        background-color: rgb(53, 141, 255);
+        color: white;
+    }
+
+}
+
+mat-grid-tile {
+    mat-form-field {
+        width: 98%;
+    }
+
+    button {
+        width: 100%;
+        margin: 7px;
+    }
+}
+
+table {
+  width: 100%;
+  margin-top: 16px;
+
+  .table-buttons {
+      align-content: flex-end;
+  }
+
+  .btn-table {
+      float: right;
+  }
+}

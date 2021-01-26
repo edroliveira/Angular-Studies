@@ -1,0 +1,137 @@
+<div class="dialog-content">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-card-header>
+        <mat-card-title> Add Person </mat-card-title>
+      </mat-card-header>
+  
+      <mat-divider></mat-divider> <br />
+  
+      <mat-card-content>
+        <mat-grid-list cols="8" rowHeight="85px">
+          <mat-grid-tile [colspan]="4" [rowspan]="1">
+            <mat-form-field appearance="outline">
+              <mat-label> Complete Name </mat-label>
+              <input
+                matInput
+                [(ngModel)]="data.name"
+                formControlName="name"
+                required
+              />
+              <!-- <mat-error>
+                <client-message-error
+                  [field]="form.controls.name"
+                  name="name"
+                ></client-message-error>
+              </mat-error> -->
+            </mat-form-field>
+          </mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <form [formGroup]="form">
+              <mat-form-field appearance="outline">
+                <mat-select [formControl]="selectControl" name="select">
+                  <mat-option
+                    (click)="toggleCpfCnpj(select.value)"
+                    *ngFor="let select of selects"
+                    [value]="select.value"
+                  >
+                    {{ select.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </form>
+          </mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <mat-form-field appearance="outline">
+              <mat-label>{{ selectControl.value }}</mat-label>
+              <input
+                #cpf
+                matInput
+                [(ngModel)]="data.cpfCnpj"
+                formControlName="cpfCnpj"
+                [mask]="maskValue"
+                required
+              />
+              <!-- <mat-error>
+                <client-message-error
+                  [field]="form.controls.cpfCnpj"
+                  name="cpfCnpj"
+                ></client-message-error>
+              </mat-error> -->
+            </mat-form-field>
+          </mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="4" [rowspan]="1">
+            <mat-form-field appearance="outline">
+              <mat-label> Email </mat-label>
+              <input
+                matInput
+                [(ngModel)]="data.email"
+                placeholder="exemplo@mail.com"
+                formControlName="email"
+                type="email"
+                required
+              />
+              <!-- <mat-error>
+                <client-message-error
+                  [field]="form.controls.email"
+                  name="email"
+                ></client-message-error>
+              </mat-error> -->
+            </mat-form-field>
+          </mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <mat-form-field appearance="outline">
+              <mat-label> Cellphone Number </mat-label>
+              <input
+                matInput
+                [(ngModel)]="data.tel"
+                formControlName="tel"
+                [mask]="maskTelCel"
+                required
+              />
+              <!-- <mat-error>
+                <client-message-error
+                  [field]="form.controls.tel"
+                  name="tel"
+                ></client-message-error>
+              </mat-error> -->
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+  
+        <mat-grid-list cols="7" rowHeight="40px">
+          <mat-grid-tile [colspan]="5" [rowspan]="1"></mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <button
+              class="btn limpar"
+              mat-raised-button
+              mat-dialog-close
+              color="warn"
+            >
+              Cancelar
+            </button>
+          </mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <button
+              class="btn salvar"
+              mat-raised-button
+              [mat-dialog-close]="data"
+              color="accent"
+              type="submit"
+              [disabled]="!this.form.valid"
+            >
+              <mat-icon>check</mat-icon> Salvar
+            </button>
+          </mat-grid-tile>
+        </mat-grid-list>
+  
+        <!-- <b>Value From Page</b>:{{fromPage}} -->
+      </mat-card-content>
+    </form>
+  </div>
+  
